@@ -38,12 +38,13 @@ export class Heros{
         this.nom = nom;
         this.nbrPntVie = nbrPntVie;
         this.nbrPntAttaque = nbrPntAttaque;
+        this.attaque = attaque;
     }
 }
 
 export class Guerrier{
     constructor(nom,nbrPntVie,nbrPntAttaque,pntRage){
-        super(nom,nbrPntVie,nbrPntAttaque)
+        super(nom,nbrPntVie,nbrPntAttaque);
         this.pntRage = pntRage;
         attaque = () => {
             this.pntRage++;
@@ -53,13 +54,14 @@ export class Guerrier{
             }
         }
     }
-}
+
+
 let guerrier =new Guerrier();
 
 
 export class Mage extends Heros{
     constructor(nom,nbrPntVie,nbrPntAttaque,pntMana){
-        super(nom,nbrPntVie,nbrPntAttaque)
+        super(nom,nbrPntVie,nbrPntAttaque);
         this.pntMana = pntMana(Math.floor(Math.random() * 3) + 7);
         attaque = () => {
         },
@@ -71,17 +73,15 @@ export class Mage extends Heros{
 let mage =new Mage();
 
 class Archer extends Heros {
-    constructor(name, health, attack) {
-        super(name, health, attack);
-        this.flêches = Math.floor(Math.random() * 5) + 7;
+    constructor(nom, nbrPntVie, nbrPntAttaque) {
+        super(this.nom, nbrPntVie, nbrPntAttaque),
+        this.fleches = Math.floor(Math.random() * 5) + 7;
     }
 
     attaque() {
-        if (this.flêches < 2) {
-        this.flêches += 6;
+        if (this.fleches <= 0) {
+        this.fleches += 6;
         return;
     }
-        this.flêches -= 2;
-        super.attack();
-    }
+}
 }
