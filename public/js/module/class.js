@@ -54,6 +54,7 @@ export class Guerrier{
             }
         }
     }
+}
 
 
 let guerrier =new Guerrier();
@@ -64,9 +65,10 @@ export class Mage extends Heros{
         super(nom,nbrPntVie,nbrPntAttaque);
         this.pntMana = pntMana(Math.floor(Math.random() * 3) + 7);
         attaque = () => {
-        },
-        deffense = () => {
-
+            if (this.pntMana <= 2) {
+                this.pntMana += 7;
+                return;
+            }
         }
     }
 }
@@ -80,8 +82,11 @@ class Archer extends Heros {
 
     attaque() {
         if (this.fleches <= 0) {
+
         this.fleches += 6;
         return;
     }
 }
-}
+} 
+
+
